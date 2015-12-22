@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title><?php echo APP_NAME ?></title>
+    <title><?php echo APP_NAME ?> | Admin panel za web shop</title>
     <!--Jquery library-->
     <script src="/assets/js/jquery-1.11.2.min.js"></script>
     
@@ -40,10 +40,15 @@
             <div class="header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-1">
                             <p><?=date('d.m.Y.')?></p>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-9 app-title">
+                            <strong><?=APP_NAME?> | Admin panel
+                                <span class="pull-right">Pozovite nas : 065/88-01-413</span>
+                            </strong>
+                        </div>
+                        <div class="col-lg-2">
                             <a href="/logout" class="btn btn-danger pull-right btn-sm">Odlogujte se</a>
                         </div>
                     </div>
