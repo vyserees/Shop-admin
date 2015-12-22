@@ -2,8 +2,13 @@
 
 class Home extends Controller {
 
-    public function index() {
-        self::view('auth/login');
+    public function index($s=null) {
+        if(null!==$s){
+                $data = $s;
+            }else{
+                $data = '';
+            }
+        self::view('auth/login',$data);
     }
     public function pocetna(){
         self::view('home/index');

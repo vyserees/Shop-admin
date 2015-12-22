@@ -1,9 +1,10 @@
 <?php mvc_header()?>
-<div class="page-header">
-    <h1>HOME</h1>
-</div>
-<div class="container">
-    <p>Popac</p>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="adm-title">POCETNA</h1>
+        <hr>
+        
+    </div>
 </div>
 <?php mvc_footer();
 

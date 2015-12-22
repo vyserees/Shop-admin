@@ -6,6 +6,8 @@ $routes = array(
 		'method' => 'pocetna'
 		),
     'error'=>array('controller'=>'error','method'=>'index'),
+    'home'=>array('controller'=>'home','method'=>'index'),
+    'login'=>array('controller'=>'auth','method'=>'index'),
     'logout'=>array('controller'=>'auth', 'method'=>'logOut'),
     'porudzbine'=>array('controller'=>'home','method'=>'porudzbine'),
     'kreiraj-sablon'=>array('controller'=>'home','method'=>'kreirajSablon'),

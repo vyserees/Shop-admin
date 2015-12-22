@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_regenerate_id();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +23,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/sticky-footer-navbar.css" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href="/assets/css/style.css" rel="stylesheet">
     
@@ -43,13 +47,13 @@
                         <div class="col-lg-1">
                             <p><?=date('d.m.Y.')?></p>
                         </div>
-                        <div class="col-lg-9 app-title">
-                            <strong><?=APP_NAME?> | Admin panel
-                                <span class="pull-right">Pozovite nas : 065/88-01-413</span>
-                            </strong>
+                        <div class="col-lg-8 app-title">
+                            <strong><?=APP_NAME?> | Admin panel</strong>
                         </div>
-                        <div class="col-lg-2">
-                            <a href="/logout" class="btn btn-danger pull-right btn-sm">Odlogujte se</a>
+                        <div class="col-lg-3">
+                            <p style="text-align: right;"><?=$_SESSION['ADMIN_NAME']?>
+                                <a href="/logout" class="btn btn-danger btn-sm pull-right" title="Odlogujte se" style="margin-left: 20px;"><i class="fa fa-power-off fa-lg"></i></a>
+                            </p>
                         </div>
                     </div>
                 </div>                
@@ -65,14 +69,14 @@
                               <li class="menu-drop"><a href="/porudzbine">Porudzbine</a>
                                   <ul class="submenu" hidden="">
                                       <li><a href="/porudzbine">Pregled</a></li>
-                                      <li><a href="/kreiraj-sablon">Kreiraj sablon</a></li>
+                                      <?php if($_SESSION['ADMIN_ROLE']==='M'){?><li><a href="/kreiraj-sablon">Kreiraj sablon</a></li><?php }?>
                                   </ul>
                               </li>
                               <li class="menu-drop"><a href="/proizvodi">Proizvodi</a>
                                   <ul class="submenu" hidden="">
                                       <li><a href="/proizvodi">Pregled</a></li>
                                       <li><a href="/dodaj-novi">Dodaj novi</a></li>
-                                      <li><a href="/karakteristike">Karakteristike</a></li>
+                                      <?php if($_SESSION['ADMIN_ROLE']==='M'){?><li><a href="/karakteristike">Karakteristike</a></li><?php }?>
                                   </ul>
                               </li>
                               <li class="menu-drop"><a href="/multimedija">Multimedija</a>
@@ -82,7 +86,7 @@
                                       <li><a href="/slajderi">Slajderi</a></li>
                                   </ul>
                               </li>
-                              <li class="menu-drop"><a href="/blokovi">Blokovi</a>
+                              <?php if($_SESSION['ADMIN_ROLE']==='M'){?><li class="menu-drop"><a href="/blokovi">Blokovi</a>
                                   <ul class="submenu" hidden="">
                                       <li><a href="/upravljanje-blokovima">Upravljanje blokovima</a></li>
                                       <li><a href="/filteri">Filteri</a></li>
@@ -90,7 +94,8 @@
                                       <li><a href="/ostalo">Ostalo</a></li>
                                   </ul>
                               </li>
-                              <li class="menu-drop"><a href="/stranice">Stranice</a>
+                              <?php }?>
+                              <?php if($_SESSION['ADMIN_ROLE']==='M'){?><li class="menu-drop"><a href="/stranice">Stranice</a>
                                   <ul class="submenu" hidden="">
                                       <li><a href="/pocetna-strana">Pocetna strana</a></li>
                                       <li><a href="/lista-proizvoda">Lista proizvoda</a></li>
@@ -99,6 +104,7 @@
                                       <li><a href="/info-strane">Info strane</a></li>
                                   </ul>
                               </li>
+                              <?php }?>
                               <li><a href="/kupci">Kupci</a></li>
                           </ul>
                       </div>
