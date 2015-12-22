@@ -31,7 +31,9 @@ class Home extends Controller {
     public function kupci(){
         self::view('kupci/index');
     }
-
+    public function podesavanja(){
+        self::view('podesavanja/index');
+    }
     
 
 }

@@ -29,6 +29,8 @@ $routes = array(
     'singl-proizvod'=>array('controller'=>'home','method'=>'singlProizvod'),
     'korpa-kupovina'=>array('controller'=>'home','method'=>'korpaKupovina'),
     'info-strane'=>array('controller'=>'home','method'=>'infoStrane'),
-    'kupci'=>array('controller'=>'home','method'=>'kupci')
+    'kupci'=>array('controller'=>'home','method'=>'kupci'),
+    'podesavanja'=>array('controller'=>'home','method'=>'podesavanja'),
+    'dodavanje-admina'=>array('controller'=>'home','method'=>'dodavanjeAdmina')
 	);
 

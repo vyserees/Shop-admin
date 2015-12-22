@@ -106,6 +106,12 @@ session_regenerate_id();
                               </li>
                               <?php }?>
                               <li><a href="/kupci">Kupci</a></li>
+                              <?php if($_SESSION['ADMIN_ROLE']==='M'){?><li class="menu-drop"><a href="/podesavanja">Podesavanja</a>
+                                  <ul class="submenu" hidden="">
+                                      <li><a href="/dodavanje-admina">Dodavanje admina</a></li>
+                                  </ul>
+                              </li>
+                              <?php }?>
                           </ul>
                       </div>
                   </div>
