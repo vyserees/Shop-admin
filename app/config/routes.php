@@ -14,6 +14,7 @@ $routes = array(
     'proizvodi'=>array('controller'=>'home','method'=>'proizvodi'),
     'dodaj-novi'=>array('controller'=>'home','method'=>'dodajNovi'),
     'karakteristike'=>array('controller'=>'home','method'=>'karakteristike'),
+    'kategorije'=>array('controller'=>'home','method'=>'kategorije'),
     'multimedija'=>array('controller'=>'home','method'=>'multimedija'),
     'slike'=>array('controller'=>'home','method'=>'slike'),
     'video'=>array('controller'=>'home','method'=>'video'),
@@ -31,6 +32,13 @@ $routes = array(
     'info-strane'=>array('controller'=>'home','method'=>'infoStrane'),
     'kupci'=>array('controller'=>'home','method'=>'kupci'),
     'podesavanja'=>array('controller'=>'home','method'=>'podesavanja'),
-    'dodavanje-admina'=>array('controller'=>'home','method'=>'dodavanjeAdmina')
+    'dodavanje-admina'=>array('controller'=>'home','method'=>'dodavanjeAdmina'),
+    
+    /*-----procesi-----*/
+    'proceskat'=>array('controller'=>'procesi','method'=>'procesKat'),
+    'procesdelkat'=>array('controller'=>'procesi','method'=>'procesDelKat'),
+    
+    /*-----ajax-----*/
+    'ajax-showpotkat'=>array('controller'=>'procesi','method'=>'showPotkat')
 	);
 

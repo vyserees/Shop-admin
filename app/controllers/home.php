@@ -19,6 +19,20 @@ class Home extends Controller {
     public function proizvodi(){
         self::view('proizvodi/index');
     }
+    public function dodajNovi(){
+        
+    }
+    public function karakteristike(){
+        
+    }
+    public function kategorije($m){
+        if(null!==$m){
+            $data = array($m,self::model('dashboard')->getForKategorije(),self::model('dashboard')->getTree());
+        }else{
+            $data = array('',self::model('dashboard')->getForKategorije(),self::model('dashboard')->getTree());
+        }
+        self::view('proizvodi/kategorije',$data);
+    }
     public function multimedija(){
         self::view('multimedija/index');
     }

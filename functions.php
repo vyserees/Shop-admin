@@ -59,3 +59,9 @@ function images($file,$savePath,$newWidth,$newHeight,$options=null,$quality=null
     $r->resizeImage($newWidth, $newHeight, $options);
     $r->saveImage($savePath, $quality);
 }
+function slugging($str){
+    $s = strtolower($str);
+    $unwanted = array(' ','+','?','.',',',';',':','"','&','%','š','Š','đ','Đ','ž','Ž','č','Č','ć','Ć');
+    $wanted = array('-','-',' ','','','-','-','','i',' posto','s','s','d','d','z','z','c','c','c','c');
+    return str_replace($unwanted, $wanted, $s);
+}

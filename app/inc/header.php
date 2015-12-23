@@ -9,8 +9,7 @@ session_regenerate_id();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    
     <link rel="icon" href="../../favicon.ico">
 
     <title><?php echo APP_NAME ?> | Admin panel za web shop</title>
@@ -76,7 +75,10 @@ session_regenerate_id();
                                   <ul class="submenu" hidden="">
                                       <li><a href="/proizvodi">Pregled</a></li>
                                       <li><a href="/dodaj-novi">Dodaj novi</a></li>
-                                      <?php if($_SESSION['ADMIN_ROLE']==='M'){?><li><a href="/karakteristike">Karakteristike</a></li><?php }?>
+                                      <?php if($_SESSION['ADMIN_ROLE']==='M'){?>
+                                      <li><a href="/karakteristike">Karakteristike</a></li>
+                                      <li><a href="/kategorije">Kategorije</a></li>
+                                      <?php }?>
                                   </ul>
                               </li>
                               <li class="menu-drop"><a href="/multimedija">Multimedija</a>
