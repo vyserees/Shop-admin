@@ -1,6 +1,9 @@
 <?php
 session_start();
 session_regenerate_id();
+if(!isset($_SESSION['ADMIN_ID'])){
+        header('Location: /');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +76,6 @@ session_regenerate_id();
                               </li>
                               <li class="menu-drop"><a href="/proizvodi">Proizvodi</a>
                                   <ul class="submenu" hidden="">
-                                      <li><a href="/proizvodi">Pregled</a></li>
                                       <li><a href="/dodaj-novi">Dodaj novi</a></li>
                                       <?php if($_SESSION['ADMIN_ROLE']==='M'){?>
                                       <li><a href="/karakteristike">Karakteristike</a></li>
@@ -108,12 +110,11 @@ session_regenerate_id();
                               </li>
                               <?php }?>
                               <li><a href="/kupci">Kupci</a></li>
-                              <?php if($_SESSION['ADMIN_ROLE']==='M'){?><li class="menu-drop"><a href="/podesavanja">Podesavanja</a>
+                              <li class="menu-drop"><a href="/podesavanja">Podesavanja</a>
                                   <ul class="submenu" hidden="">
-                                      <li><a href="/dodavanje-admina">Dodavanje admina</a></li>
+                                      <?php if($_SESSION['ADMIN_ROLE']==='M'){?><li><a href="/dodavanje-admina">Dodavanje admina</a></li><?php }?>
                                   </ul>
                               </li>
-                              <?php }?>
                           </ul>
                       </div>
                   </div>

@@ -37,8 +37,13 @@ $routes = array(
     /*-----procesi-----*/
     'proceskat'=>array('controller'=>'procesi','method'=>'procesKat'),
     'procesdelkat'=>array('controller'=>'procesi','method'=>'procesDelKat'),
+    'procesaddkar'=>array('controller'=>'procesi','method'=>'procesAddKar'),
+    'procesdelkar'=>array('controller'=>'procesi','method'=>'procesDelKar'),
     
     /*-----ajax-----*/
-    'ajax-showpotkat'=>array('controller'=>'procesi','method'=>'showPotkat')
+    'ajax-showpotkat'=>array('controller'=>'procesi','method'=>'showPotkat'),
+    'ajax-showoptions'=>array('controller'=>'procesi','method'=>'showOptions'),
+    'ajax-addopts'=>array('controller'=>'procesi','method'=>'addOpts'),
+    'ajax-delopt'=>array('controller'=>'procesi','method'=>'delOpt')
 	);
 

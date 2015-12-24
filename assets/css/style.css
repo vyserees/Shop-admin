@@ -82,3 +82,4 @@ nav{background: #ff0033;}
 .kat-tree-kat li p{padding: 3px 10px;font-weight: 700;border: 1px solid #777;font-size: 14px;}
 .kat-tree-pot li p{padding: 0;font-weight: 400;border:none !important;}
 .toggle-potkat:hover{opacity: 0.6;cursor: pointer;}
+.fa-spinner{margin:25% 30%;}

@@ -27,9 +27,9 @@ mvc_header()?>
             <ul class="cat-list">
                 <?php foreach($data[1] as $k){?>
                 <li><p id="item-<?=$k['kat_id']?>">
-                        <span><a href="/procesdelkat/kat/<?=$k['kat_id']?>"><i class="fa fa-trash-o fa-lg delkat" style="color:#ff0033;margin-right: 10px;" title="Obrisite kategoriju"></i></a></span>
+                        <?php if($k['kat_slug']!=='nedefinisana'){ ?><span><a href="/procesdelkat/kat/<?=$k['kat_id']?>"><i class="fa fa-trash-o fa-lg delkat" style="color:#ff0033;margin-right: 10px;" title="Obrisite kategoriju"></i></a></span><?php }?>
                         <?=ucfirst($k['kat_naziv'])?>
-                        <span class="pull-right"><i class="fa fa-chevron-right fa-lg seepots"></i></span>
+                        <?php if($k['kat_slug']!=='nedefinisana'){ ?><span class="pull-right"><i class="fa fa-chevron-right fa-lg seepots"></i></span><?php }?>
                     </p></li>
                 <?php }?>
             </ul>
@@ -62,7 +62,7 @@ mvc_header()?>
 
 <script>
     $(document).ready(function(){
-        $(document).on('focusin','input',function(){
+        $(document).click(function(){
             $('#msg-success').hide();
         });
         $(document).on('click','.submit',function(){
@@ -73,6 +73,8 @@ mvc_header()?>
             }
         });
         $('.seepots').click(function(){
+            var elem = $(this).parents('p');
+            elem.css('border','3px solid #777').parent().siblings().children('p').css('border','1px solid #eee');
             var item = $(this).parents('p').attr('id');
             $.ajax({
                 url:'/ajax-showpotkat',

@@ -19,8 +19,8 @@
   <body>
 
     <div class="login-form">
-        <h2>LOG IN</h2>
-        <?php if($data!==''){echo '<p>Pogresan e-mail i/ili lozinka!</p>';} ?>
+        <h2 style="text-align: center;">LOG IN</h2>
+        <?php if($data!==''){echo '<p>Pogrešan e-mail i/ili lozinka!</p>';}else{echo '<p style="background:transparent;font-style:italic;color:#000;">Vaša predhodna sesija je istekla! Ulogujte se ponovo.</p>';} ?>
         <form action="/login" method="post">
         <label>Username</label>
         <input type="text" name="name" required="" class="form-control">

@@ -17,6 +17,7 @@ class Procesi extends Controller{
     public function procesDelKat($key,$value){
         if($key==='kat'){
             deletion('kategorije',array('kat_id'=>$value));
+            deletion('potkategorije',array('pot_kategorije_id'=>$value));
             header("location: /kategorije/d");
         }elseif($key==='pot'){
             deletion('potkategorije',array('pot_id'=>$value));
@@ -24,6 +25,22 @@ class Procesi extends Controller{
         }else{
             header('Location: /kategorije/e');
         }
+    }
+    public function procesAddKar(){
+        $post = filter_input_array(INPUT_POST);
+        $a = inserting('karakteristike',array(
+            'kar_naziv'=>$post['naziv'],
+            'kar_slug'=>slugging($post['naziv']),
+            'kar_tip'=>$post['tip'],
+            'kar_status'=>'C'
+        ));
+        header('Location: /karakteristike/s');
+    }
+    public function procesDelKar($id){
+        deletion('karakteristike',array('kar_id'=>$id));
+        deletion('opcije',array('opc_karakteristike_id'=>$id));
+        deletion('vrednosti',array('vre_karakteristike_id'=>$id));
+        header('Location: /karakteristike/d');
     }
 
 
@@ -49,5 +66,45 @@ class Procesi extends Controller{
             </div>';
         
         echo $str;
+    }
+    public function showOptions(){
+        $i = filter_input(INPUT_POST, 'item');
+        $id = explode('-', $i);
+        $res = selection('opcije',array('opc_karakteristike_id'=>$id[1]),array('opc_naziv'));
+        $str = '<ul class="cat-list" id="chr-'.$id[1].'">';
+        foreach($res as $o){
+            $str .= '<li><p id="item-'.$o['opc_id'].'">'.ucfirst($o['opc_naziv']).''
+                    . '<span class="pull-right"><i class="fa fa-trash-o fa-lg delopt" style="color:#ff0033;margin-right: 10px;" title="Obrisite opciju"></i></span></li>';
+        }
+        $str .= '</ul>';
+        $str .= '<form action="" id="addopts"><input type="hidden" name="kid" value="'.$id[1].'"><div class="opt-form-list"></div></form>';
+        $str .= '<div style="text-align:center;"><button class="btn btn-default add-opt-field" style="display:inline-block;padding:5px 25px;margin-right:15px;">'
+                . '<i class="fa fa-plus fa-2x"></i></button>'
+                . '<button class="btn btn-primary opt-save" style="display:inline-block;padding:5px 25px;">'
+                . '<i class="fa fa-save fa-2x"></i></button></div>';
+        
+        echo $str;
+    }
+    public function addOpts(){
+        $post = filter_input_array(INPUT_POST);
+        
+        foreach($post as $key=>$value){
+            if($key!=='kid'){
+                $a = inserting('opcije',array(
+                    'opc_karakteristike_id'=>$post['kid'],
+                    'opc_naziv'=>$value,
+                    'opc_slug'=>slugging($value)
+                ));
+            }
+        }
+        echo 'item-'.$post['kid'];
+    }
+    public function delOpt(){
+        $post = filter_input_array(INPUT_POST);
+        $id = explode('-', $post['item']);
+        $ch = explode('-', $post['chr']);
+        
+        deletion('opcije',array('opc_id'=>$id[1]));
+        echo 'item-'.$ch[1];
     }
 }

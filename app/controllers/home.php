@@ -22,8 +22,13 @@ class Home extends Controller {
     public function dodajNovi(){
         
     }
-    public function karakteristike(){
-        
+    public function karakteristike($m=null){
+        if(null!==$m){
+            $data = array($m,self::model('dashboard')->getForKar());
+        }else{
+            $data = array('',self::model('dashboard')->getForKar());
+        }
+        self::view('proizvodi/karakteristike',$data);
     }
     public function kategorije($m){
         if(null!==$m){
