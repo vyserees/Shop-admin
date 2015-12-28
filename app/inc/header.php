@@ -29,6 +29,7 @@ if(!isset($_SESSION['ADMIN_ID'])){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/fileinput.css" rel="stylesheet">
     
     
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->

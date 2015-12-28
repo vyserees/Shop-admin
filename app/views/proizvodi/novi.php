@@ -99,7 +99,14 @@ mvc_header()?>
                 <h1>aaaaaa</h1>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="messages">
-                <h1>bbbbbbbb</h1>
+                <form action="" method="post" enctype="multipart/form" id="addslike">
+                    <div class="row">
+                    <div class="col-lg-12">
+                        <label>Dodavanje slika (možete dodati više slika odjednom)</label>
+                        <input type="file" name="slike[]" class="file" id="slike" multiple="">
+                    </div>
+                    </div>
+                </form>
             </div>
         </div>
 </div>
@@ -117,6 +124,12 @@ $(document).ready(function(){
                 }
             });
         }
+    });
+    $('#slike').fileinput({
+	showUpload: false,
+        maxFileCount: 10,
+        allowedFileExtensions: ['jpg']
+	//maxFileSize: 800
     });
 });
 </script>
