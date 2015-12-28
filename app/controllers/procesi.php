@@ -107,4 +107,13 @@ class Procesi extends Controller{
         deletion('opcije',array('opc_id'=>$id[1]));
         echo 'item-'.$ch[1];
     }
+    public function selPot(){
+        $kid = filter_input(INPUT_POST, 'kid');
+        $res = selection('potkategorije',array('pot_kategorije_id'=>$kid),array('pot_naziv'));
+        $str = '<option value="">izaberite</option>';
+        foreach($res as $p){
+            $str .= '<option value="'.$p['pot_id'].'">'.ucfirst($p['pot_naziv']).'</option>';
+        }
+        echo $str;
+    }
 }

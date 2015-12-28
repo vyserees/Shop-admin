@@ -44,6 +44,7 @@ $routes = array(
     'ajax-showpotkat'=>array('controller'=>'procesi','method'=>'showPotkat'),
     'ajax-showoptions'=>array('controller'=>'procesi','method'=>'showOptions'),
     'ajax-addopts'=>array('controller'=>'procesi','method'=>'addOpts'),
-    'ajax-delopt'=>array('controller'=>'procesi','method'=>'delOpt')
+    'ajax-delopt'=>array('controller'=>'procesi','method'=>'delOpt'),
+    'ajax-selpot'=>array('controller'=>'procesi','method'=>'selPot')
 	);
 

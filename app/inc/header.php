@@ -18,6 +18,7 @@ if(!isset($_SESSION['ADMIN_ID'])){
     <title><?php echo APP_NAME ?> | Admin panel za web shop</title>
     <!--Jquery library-->
     <script src="/assets/js/jquery-1.11.2.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     
 
     <!-- Bootstrap core CSS -->
